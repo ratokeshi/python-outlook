@@ -36,6 +36,7 @@ def get_appointments(calendar,subject_kw = None,exclude_subject_kw = None, body_
     df.to_csv('results.txt', index=False)                   
     return df
 
+#this section gets the details out of the calendar item.  Notice the print appointments line.  That is interesting because it doesnt obscure the recipients as a com object
 def make_cpd(appointments):
     appointments['Date'] = appointments['start']
     appointments['Hours'] = (appointments['end'] - appointments['start']).dt.seconds/3600
@@ -45,6 +46,14 @@ def make_cpd(appointments):
     print(appointments)
     summary = appointments.groupby('Meeting Description')['Hours'].sum()#.get_group('Recipients')
     return summary
+
+# - New def to output just calendar recipients using print of pandas dataframe
+#Create new def
+#get just id number and recipients of each calendar item
+#print
+#print to file
+#cross fingers
+
 
 def findfile(lookfor):
     lookfor="*" + lookfor + "*"
@@ -75,6 +84,8 @@ cal = get_calendar(begin, end)
 appointments = get_appointments(cal, subject_kw = ' ', exclude_subject_kw = 'Canceled')
 result = make_cpd(appointments)
 print(result)
+
+#
 
 
 # Create a timestamp for backup files 
