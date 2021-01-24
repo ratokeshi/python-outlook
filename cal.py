@@ -56,11 +56,6 @@ def findfile(lookfor):
             print(lookfor + ". is NOT a match.")
     return(file)        
      
-#def main():
-    
-   #print ("File exists:" + str(path.exists('meeting hours.xlsx')))
-   #print ("File exists:" + str(path.exists('meeting hours.xlsx')))
-   #print ("directory exists:" + str(path.exists('myDirectory')))
 
 # Set beginning and ending meeting search range
 begin = dt.datetime(2021,1,17)
