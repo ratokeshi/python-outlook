@@ -70,6 +70,7 @@ filetype="xlsx"
 fileoutput=filename + "." + filetype
 
 
+#get calander items to place in excel
 cal = get_calendar(begin, end)
 appointments = get_appointments(cal, subject_kw = ' ', exclude_subject_kw = 'Canceled')
 result = make_cpd(appointments)
